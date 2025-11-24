@@ -45,7 +45,7 @@
 
 ## Una vez cargados los datos, se combinaron en un único DataFrame para el análisis global y se crearon nuevas métricas.
 
-#Código Python:
+# Código Python:
 
 ## "df_combined = pd.concat([tienda, tienda2, tienda3, tienda4], ignore_index=True)"
 ## Explicación: "Combina los cuatro DataFrames de tiendas en un solo DataFrame (df_combined), apilando las filas. El argumento ignore_index=True asegura un índice continuo y limpio."
