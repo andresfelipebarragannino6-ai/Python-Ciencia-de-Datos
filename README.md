@@ -24,7 +24,7 @@
 
 ## Segmentación por Categoría: Se identificaron 8 categorías de producto únicas y se prepararon visualizaciones de datos para cada una de ellas para un análisis cualitativo posterior.
 
-# Resultados y Hallazgos Clave:
+# Hallazgos Clave:
 
 # Carga e Importación de Datos:
 
@@ -55,4 +55,23 @@
 
 ## df_combined['Reseñas'] = df_combined['Calificación']
 ## Explicación: "Crea la columna Reseñas, que es una copia directa de la columna Calificación, para estandarizar el nombre."
-df_combined['Rendimiento de Ventas'] = df_combined['Ingresos'] / df_combined['Cantidad de cuotas'],"Crea la columna Rendimiento de Ventas para obtener el valor promedio de la venta por cuota, como una métrica de desempeño adicional."
+
+## df_combined['Rendimiento de Ventas'] = df_combined['Ingresos'] / df_combined['Cantidad de cuotas']
+## Explicación: "Crea la columna Rendimiento de Ventas para obtener el valor promedio de la venta por cuota, como una métrica de desempeño adicional."
+
+# Cálculo de Métricas Clave:
+
+## Se utilizó un bucle (for) para iterar sobre los DataFrames de cada tienda y calcular las métricas principales (Facturación Total y Calificación Promedio) de manera comparativa.
+
+# Código Python:
+## "dataframe = [tienda,tienda2,tienda3,tienda4]"
+## Explicación: Lista que contiene los DataFrames individuales para facilitar la iteración.
+
+## "for i, df in enumerate(dataframe):"
+## Explicación: Inicia un bucle para procesar cada tienda.
+
+## "df[""Precio""].sum()"
+## Explicación: Calcula la Facturación Total de la tienda actual (suma de la columna Precio).
+
+## df['Calificación'].mean()
+## Explicación: Calcula la Calificación Promedio de la tienda actual (media de la columna Calificación).
