@@ -26,8 +26,33 @@
 
 # Resultados y Hallazgos Clave:
 
-Tienda,Facturación Total (COP),Calificación Promedio
-Tienda 1,"$1,150,880,400.00",3.98 estrellas
-Tienda 2,"$1,116,343,500.00",4.04 estrellas
-Tienda 3,"$1,098,019,600.00",4.04 estrellas
-Tienda 4,"$1,038,375,700.00",4.00 estrellas
+# Carga e Importación de Datos:
+
+## El primer paso fue cargar la librería pandas y obtener los datos de cada tienda desde sus respectivas URL remotas.
+
+# Código Python:
+
+## import pandas as pd. 
+## Explicación: "Importa la librería pandas, esencial para la manipulación y análisis de datos en DataFrames."
+
+## "url = ""...""
+## Explicación: ",Define las URLs de los archivos CSV para cada una de las cuatro tiendas.
+
+## tienda = pd.read_csv(url)
+## Explicación: "Carga cada archivo CSV desde su URL a un DataFrame individual (tienda, tienda2, tienda3, tienda4)."
+
+# Unificación e Ingeniería de Características:
+
+## Una vez cargados los datos, se combinaron en un único DataFrame para el análisis global y se crearon nuevas métricas.
+
+#Código Python:
+
+## "df_combined = pd.concat([tienda, tienda2, tienda3, tienda4], ignore_index=True)"
+## Explicación: "Combina los cuatro DataFrames de tiendas en un solo DataFrame (df_combined), apilando las filas. El argumento ignore_index=True asegura un índice continuo y limpio."
+
+## df_combined['Ingresos'] = df_combined['Precio']
+## Explicación: "Crea la columna Ingresos, que es una copia directa de la columna Precio, representando la facturación bruta por venta."
+
+## df_combined['Reseñas'] = df_combined['Calificación']
+## Explicación: "Crea la columna Reseñas, que es una copia directa de la columna Calificación, para estandarizar el nombre."
+df_combined['Rendimiento de Ventas'] = df_combined['Ingresos'] / df_combined['Cantidad de cuotas'],"Crea la columna Rendimiento de Ventas para obtener el valor promedio de la venta por cuota, como una métrica de desempeño adicional."
